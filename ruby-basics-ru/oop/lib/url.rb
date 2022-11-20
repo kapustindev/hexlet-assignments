@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
 # BEGIN
-require 'forwardable'
-
 class Url
   attr_reader :url
-  extend Forwardable
-  def_delegators :url, :scheme, :host
 
   include Comparable
   def ==(other)
@@ -14,11 +10,24 @@ class Url
   end
 
   def initialize(url)
-    @url = URI(url)
+    @url = url
+  end
+
+  def scheme
+    url[0...url.index(':')];
+  end
+
+  def host
+    without_scheme = url.split('/')[2]
+    result = without_scheme.include?(':') ? without_scheme.split(':') : without_scheme.split('?')
+    result.first
+  end
+
+  def query
+    url.include?('?') ? url.split('?').last : nil
   end
 
   def query_params
-    query = url.query
     return {} if query.nil?
   
     query.split('&').each_with_object({}) do |q, acc|
