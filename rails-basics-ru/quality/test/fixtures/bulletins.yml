@@ -1,0 +1,9 @@
+one:
+  title: Bulletin 1
+  body: Description of Bulletin 1
+  published: true
+
+two:
+  title: Bulletin 2
+  body: Description of Bulletin 2
+  published: true
