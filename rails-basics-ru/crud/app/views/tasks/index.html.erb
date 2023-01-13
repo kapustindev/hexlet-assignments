@@ -1,0 +1,10 @@
+<h1>Task List</h1>
+<button type="button"><%= link_to 'Create new task', new_task_path %></button>
+<div style="display: flex; flex-direction: column">
+  <% @tasks.each do |task| %>
+  <div style="display: flex; padding: 8px 12px; border: 1px solid gray; border-radius: 8px; width: 400px; flex-direction: column;">
+    <div><%= link_to task.name, task_path(task) %></div>
+    <p><%= task.description %></p>
+  </div>
+  <% end %>
+</div>

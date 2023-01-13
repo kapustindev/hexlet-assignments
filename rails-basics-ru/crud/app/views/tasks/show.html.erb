@@ -1,0 +1,9 @@
+<h1>Task #<%= @task.id %></h1>
+<div><b>Name: </b><%= @task.name %></div>
+<div><b>Description: </b><%= @task.description %></div>
+<div><b>Status: </b><%= @task.status %></div>
+<div><b>Creator: </b><%= @task.creator %></div>
+<div><b>Performer: </b><%= @task.performer %></div>
+<div><b>Completed: </b><%= @task.completed %></div>
+<%= link_to 'Edit', edit_task_path(@task) %>
+<%= button_to 'Delete', task_path(@task), method: :delete %>
