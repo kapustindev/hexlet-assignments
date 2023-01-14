@@ -1,0 +1,8 @@
+h1= @task.name
+p= @task.description
+p Status: #{@task.status}
+p Creator: #{@task.creator}
+p Performer: #{@task.performer}
+p Completed: #{@task.completed}
+
+a= link_to 'Edit', edit_task_path
