@@ -1,0 +1,9 @@
+h1 Posts
+= link_to 'Publish new post', new_post_path, class: 'btn btn-primary'
+- @posts.each do |post|
+  .card.mb-3
+    .card-body
+      h5.card-title = post.title
+      p.card-text = post.summary
+      = link_to 'More...', post_path(post), class: 'btn btn-primary'
+

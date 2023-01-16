@@ -1,0 +1,7 @@
+h1 = @post.title
+.card-subtitle.text-muted = "Published" if @post.published
+p = @post.body
+.btn-group
+  = link_to 'Back', posts_path, class: 'btn btn-primary'
+  = link_to 'Edit', edit_post_path, class: 'btn btn-primary'
+  = link_to 'Delete', post_path, class: 'btn btn-primary', method: 'delete'
