@@ -9,7 +9,7 @@ class SetLocaleMiddleware
   def call(env)
     I18n.locale = extract_locale_from_accept_language_header(env)
 
-    app.call(env)
+    @app.call(env)
   end
 
   private
