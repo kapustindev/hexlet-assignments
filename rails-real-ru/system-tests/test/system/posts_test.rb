@@ -17,8 +17,8 @@ class PostTest < ApplicationSystemTestCase
     visit posts_path
     click_on 'New Post'
 
-    fill_in "Title", with: @post.title
-    fill_in "Body", with: @post.body
+    fill_in 'Title', with: @post.title
+    fill_in 'Body', with: @post.body
     click_on 'Create Post'
 
     assert_text 'Post was successfully created'
@@ -28,7 +28,7 @@ class PostTest < ApplicationSystemTestCase
     visit posts_path
     click_on 'Edit', match: :first
 
-    fill_in "Title", with: 'New Title'
+    fill_in 'Title', with: 'New Title'
     click_on 'Update Post'
 
     assert_text 'Post was successfully updated'
