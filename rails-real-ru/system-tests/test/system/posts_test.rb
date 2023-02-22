@@ -3,17 +3,17 @@
 require 'application_system_test_case'
 
 # BEGIN
-class PostTest < ApplicationSystemTestCase
+class PostsTest < ApplicationSystemTestCase
   setup do
     @post = posts(:one)
   end
 
-  test 'visiting the index' do
+  def test_index_visit
     visit posts_path
     assert_selector 'h1', text: 'Posts'
   end
 
-  test 'creating a post' do
+  def test_post_creation
     visit posts_path
     click_on 'New Post'
 
@@ -24,7 +24,7 @@ class PostTest < ApplicationSystemTestCase
     assert_text 'Post was successfully created'
   end
 
-  test 'updating a post' do
+  def test_post_uploading
     visit posts_path
     click_on 'Edit', match: :first
 
@@ -34,7 +34,7 @@ class PostTest < ApplicationSystemTestCase
     assert_text 'Post was successfully updated'
   end
 
-  test 'destroying a post' do
+  def test_post_destoying
     visit posts_path
     page.accept_confirm do
       click_on 'Destroy', match: :first
@@ -43,7 +43,7 @@ class PostTest < ApplicationSystemTestCase
     assert_text 'Post was successfully destroyed'
   end
 
-  test 'creating a comment' do
+  def test_comment_creation
     visit posts_path
     click_on 'Show', match: :first
 
