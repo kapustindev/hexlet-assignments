@@ -14,7 +14,7 @@ class Vehicle < ApplicationRecord
 
   # BEGIN
   validates :image, attached: true,
-                    content_type: %i[png jpg jpeg],
-                    size: { less_than: 5.megabytes }
+                     content_type: %i[png jpg jpeg],
+                     size: { less_than: 5.megabytes }
   # END
 end
