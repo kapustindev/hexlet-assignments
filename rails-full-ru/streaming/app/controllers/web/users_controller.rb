@@ -63,14 +63,15 @@ class Web::UsersController < Web::ApplicationController
   # BEGIN
   def stream_csv
     response.headers['Last-Modified'] = Time.now.httpdate.to_s
-    response.headers['Content-Type'] = 'text/csv'
-    response.headers["Content-Disposition"] = "attachment;filename=stream_csv.csv"
 
-    user_columns = User.column_names
-    response.stream.write "#{user_columns.join(',')}\n"
+    send_stream(filename: 'users.csv') do |stream|
+      user_columns = User.column_names
 
-    User.find_each do |user|
-      response.stream.write "#{user.attributes.values.join(',')}\n"
+      stream.write "#{user_columns.join(',')}\n"
+
+      User.find_each do |user|
+        stream.write "#{user.attributes.values.join(',')}\n"
+      end
     end
   
   ensure
